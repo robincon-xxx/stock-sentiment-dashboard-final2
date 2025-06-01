@@ -9,12 +9,15 @@ from datetime import datetime, timedelta
 st.set_page_config(page_title="Stock Sentiment Dashboard", layout="wide")
 st.title("📊 Stock Sentiment Dashboard: BTC & ETF")
 
-start_date = (datetime.today() - timedelta(days=180)).strftime('%Y-%m-%d')
+start_date_raw = datetime.today() - timedelta(days=180)
+today = datetime.today()
+start_date = min(start_date_raw, today).strftime('%Y-%m-%d')
 
 # ------------------ API Keys ------------------
 import os
-twelvedata_api_key = os.getenv ("102dbdd7403e44e38fa3b444b6b66945")
-fred_api_key = os.getenv ("86d4f2d7c2d0aaa054cc5acd61bbf98e")
+twelvedata_api_key = os.gentev ("TWELVEDATA_API_KEY")
+fred_api_key = os.gentev ("FRED_API_KEY")
+
 
 # ------------------ API Calls ------------------
 
