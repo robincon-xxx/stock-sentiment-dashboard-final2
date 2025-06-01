@@ -9,9 +9,7 @@ from datetime import datetime, timedelta
 st.set_page_config(page_title="Stock Sentiment Dashboard", layout="wide")
 st.title("📊 Stock Sentiment Dashboard: BTC & ETF")
 
-start_date_raw = datetime.today() - timedelta(days=180)
-today = datetime.today()
-start_date = min(start_date_raw, today).strftime('%Y-%m-%d')
+start_date = (datetime.utcnow() - timedelta(days=180)).strftime('%Y-%m-%d')
 
 # ------------------ API Keys ------------------
 import os
