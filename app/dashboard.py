@@ -134,7 +134,8 @@ def run_dashboard():
     crypto_fgi = fgi_df['Value'].iloc[-1] if not fgi_df.empty else "N/A"
     crypto_fgi_prev = fgi_df['Value'].iloc[-2] if len(fgi_df) > 1 else "N/A"
 
-    st.sidebar.header("⏳ Date Range Selection")
+
+    run_dashboard()
     day_range = st.sidebar.slider("Select number of days to display", min_value=7, max_value=180, value=180, step=1)
     start_display_date = datetime.today() - timedelta(days=day_range)
 
@@ -212,7 +213,10 @@ def run_dashboard():
 
 # ------------------ Main Entry ------------------
 
-if st.sidebar.button("🔄 Refresh Data"):
+st.sidebar.header("⏳ Date Range Selection")
+
+# 🔄 Refresh-Button: Cache löschen und rerun
+if  st.sidebar.button("🔄 Refresh Data"):
     st.cache_data.clear()
     st.experimental_rerun()
 else:
