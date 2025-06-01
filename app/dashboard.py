@@ -8,6 +8,9 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Stock Sentiment Dashboard", layout="wide")
 st.title("📊 Stock Sentiment Dashboard: BTC & ETF")
+if st.button("🔄 Daten aktualisieren"):
+    st.cache_data.clear()
+    st.experimental_rerun()
 
 start_date = (datetime.utcnow() - timedelta(days=180)).strftime('%Y-%m-%d')
 
