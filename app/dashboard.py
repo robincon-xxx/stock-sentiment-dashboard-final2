@@ -15,8 +15,8 @@ start_date = min(start_date_raw, today).strftime('%Y-%m-%d')
 
 # ------------------ API Keys ------------------
 import os
-twelvedata_api_key = os.gentev ("TWELVEDATA_API_KEY")
-fred_api_key = os.gentev ("FRED_API_KEY")
+twelvedata_api_key = os.getenv ("TWELVEDATA_API_KEY")
+fred_api_key = os.getenv ("FRED_API_KEY")
 
 
 # ------------------ API Calls ------------------
